@@ -6,12 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>360</width>
-    <height>224</height>
+    <width>380</width>
+    <height>370</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Servidor</string>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -72,7 +78,11 @@
      </spacer>
     </item>
     <item row="1" column="1">
-     <widget class="QTextEdit" name="txf_receive"/>
+     <widget class="QTextEdit" name="txf_receive">
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>

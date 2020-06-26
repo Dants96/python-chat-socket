@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ServerWindow.ui'
+# Form implementation generated from reading ui file '.\UI\ServerWindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.0
 #
@@ -14,7 +14,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_ServerWindow(object):
     def setupUi(self, ServerWindow):
         ServerWindow.setObjectName("ServerWindow")
-        ServerWindow.resize(360, 224)
+        ServerWindow.resize(380, 370)
+        ServerWindow.setIconSize(QtCore.QSize(0, 0))
         self.centralwidget = QtWidgets.QWidget(ServerWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
@@ -35,6 +36,7 @@ class Ui_ServerWindow(object):
         spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout.addItem(spacerItem2, 0, 2, 1, 1)
         self.txf_receive = QtWidgets.QTextEdit(self.centralwidget)
+        self.txf_receive.setReadOnly(True)
         self.txf_receive.setObjectName("txf_receive")
         self.gridLayout.addWidget(self.txf_receive, 1, 1, 1, 1)
         ServerWindow.setCentralWidget(self.centralwidget)
@@ -45,8 +47,6 @@ class Ui_ServerWindow(object):
         self.retranslateUi(ServerWindow)
         QtCore.QMetaObject.connectSlotsByName(ServerWindow)
 
-        self.txf_receive.setReadOnly(True)
-
     def retranslateUi(self, ServerWindow):
         _translate = QtCore.QCoreApplication.translate
         ServerWindow.setWindowTitle(_translate("ServerWindow", "Servidor"))
@@ -54,3 +54,11 @@ class Ui_ServerWindow(object):
         self.btn_send.setText(_translate("ServerWindow", "Send"))
 
 
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    ServerWindow = QtWidgets.QMainWindow()
+    ui = Ui_ServerWindow()
+    ui.setupUi(ServerWindow)
+    ServerWindow.show()
+    sys.exit(app.exec_())

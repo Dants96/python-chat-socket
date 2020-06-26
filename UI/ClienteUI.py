@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ClientWindow.ui'
+# Form implementation generated from reading ui file '.\UI\ClientWindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.0
 #
@@ -14,7 +14,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_ClientWindow(object):
     def setupUi(self, ClientWindow):
         ClientWindow.setObjectName("ClientWindow")
-        ClientWindow.resize(390, 227)
+        ClientWindow.resize(380, 370)
+        ClientWindow.setIconSize(QtCore.QSize(0, 0))
         self.centralwidget = QtWidgets.QWidget(ClientWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
@@ -27,6 +28,7 @@ class Ui_ClientWindow(object):
         self.txf_send.setObjectName("txf_send")
         self.gridLayout.addWidget(self.txf_send, 2, 1, 1, 1)
         self.txf_receive = QtWidgets.QTextEdit(self.centralwidget)
+        self.txf_receive.setReadOnly(True)
         self.txf_receive.setObjectName("txf_receive")
         self.gridLayout.addWidget(self.txf_receive, 1, 1, 1, 1)
         self.btn_receive = QtWidgets.QPushButton(self.centralwidget)
@@ -48,8 +50,6 @@ class Ui_ClientWindow(object):
         self.retranslateUi(ClientWindow)
         QtCore.QMetaObject.connectSlotsByName(ClientWindow)
 
-        self.txf_receive.setReadOnly(True)
-
     def retranslateUi(self, ClientWindow):
         _translate = QtCore.QCoreApplication.translate
         ClientWindow.setWindowTitle(_translate("ClientWindow", "Cliente"))
@@ -57,3 +57,12 @@ class Ui_ClientWindow(object):
         self.btn_conect.setText(_translate("ClientWindow", "Conect"))
         self.btn_send.setText(_translate("ClientWindow", "Send"))
 
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    ClientWindow = QtWidgets.QMainWindow()
+    ui = Ui_ClientWindow()
+    ui.setupUi(ClientWindow)
+    ClientWindow.show()
+    sys.exit(app.exec_())
