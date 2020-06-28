@@ -1,5 +1,6 @@
 import socket, pickle, threading, sys
 import UI.AlertsHTML as out
+from BK.BasedeDatos import BasedeDatos as db
 
 class ServidorBk():
     def __init__(self, tx_recv):
@@ -67,15 +68,27 @@ class ServidorBk():
 
     def procesarCon(self):
         print("Procesando conexiones ...")
-        self.tx_recv.append(out.alertInfo("Aceptando Conexiones..."))
+        self.tx_recv.append(out.alertInfo("Aceptando peticiones..."))
         while True:
             if len(self.clientes) > 0:
                 for cliente in self.clientes:
                     try:
                         data = cliente.recv(1024)
                         if data:
-                            msg_u = "Cliente [{}]: {}".format((self.clientes.index(cliente) + 1), pickle.loads(data))
-                            data = pickle.dumps(msg_u)
-                            self.msgToAll(data, cliente)
+                            data = str(pickle.loads(data))
+                            if data[0:6] == "Req_DB":
+                                self.tx_recv.append(out.alertInfo("petion a base dedatos Cliente[{}]".format((self.clientes.index(cliente) + 1))))
+                                busqueda = db.reqName(data[6:len(data)])
+                                if busqueda["get"]:
+                                    cliente.send(pickle.dumps("RQSuccs!{}".format(busqueda["req"])))
+                                else:
+                                    cliente.send(pickle.dumps("RQError!{}".format(busqueda["req"])))
+                            else:
+                                msg_u = "Cliente [{}]: {}".format((self.clientes.index(cliente) + 1), data)
+                                data = pickle.dumps(msg_u)
+                                self.msgToAll(data, cliente)
                     except:
                         pass
+    
+    def buscarEnBD(self, field, tx_recv_us):
+        pass
