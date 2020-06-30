@@ -6,7 +6,7 @@ class ServidorBk():
     def __init__(self, tx_recv):
         # guardar clientes conectados 
         self.clientes = []
-        self.host = "localhost"
+        self.host = "192.168.0.20"
         self.port = 7000
         self.tx_recv = tx_recv
 

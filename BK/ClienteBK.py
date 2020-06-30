@@ -3,7 +3,7 @@ import UI.AlertsHTML as out
 
 class ClienteBk():
     def __init__(self, tx_recv, tx_field):
-        self.host = "localhost"
+        self.host = "192.168.0.20"
         self.port = 7000
         self.tx_recv = tx_recv
         self.tx_field = tx_field
