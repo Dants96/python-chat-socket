@@ -1,4 +1,3 @@
 #cache python
-__pycache__
-\UI\__pycache__\
-\BK\__pycache__\
+BK/__pycache__/**
+UI/__pycache__/**

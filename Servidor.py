@@ -23,7 +23,8 @@ class Servidor():
         self.bk.startConex(self.ui.btn_starsv)
     
     def enviarMsg(self):
-        self.bk.sendToAllS(self.ui.txf_send)
+        if self.ui.txf_send != "":
+            self.bk.sendToAllS(self.ui.txf_send)
     
     
 if __name__ == "__main__":

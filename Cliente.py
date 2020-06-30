@@ -22,7 +22,8 @@ class Cliente:
         self.ui.btn_receive.clicked.connect(self.enviarPet)
         
     def enviarMsg(self):
-        self.bk.send_msg(self.ui.txf_send)
+        if self.ui.txf_send != "":
+            self.bk.send_msg(self.ui.txf_send)
     
     def conectar(self):
         self.bk.conectar(self.ui.btn_conect)
