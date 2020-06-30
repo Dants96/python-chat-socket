@@ -1,0 +1,4 @@
+#cache python
+__pycache__
+\UI\__pycache__\
+\BK\__pycache__\
